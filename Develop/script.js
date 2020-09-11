@@ -1,7 +1,6 @@
 // GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-// ajax get call to return the current day in the #currentDay element 
+
+
 // WHEN I scroll down
 // THEN I am presented with timeblocks for standard business hours
 // create blocks of time for the day with an ajax get call of the hours 9AM -5PM and save button that triggers the setlocalstorage
@@ -22,18 +21,30 @@
 
 
 
+getCurrentDay();
+
+
 
 //variables 
 //#currentDay 
 //#container for time blocks 
-
+var currentDayEl = $("#currentDay");
 
 //event listeners 
 // save button in timeblock to setthe local storage 
 
-
 //functions 
 //
 
+
+// WHEN I open the planner
+// THEN the current day is displayed at the top of the calendar
+// ajax get call to return the current day in the #currentDay element 
+
+function getCurrentDay (){
+    var currentDay = moment().format('MMMM Do YYYY');
+    console.log(currentDay);
+    currentDayEl.text(currentDay);
+}
 
 
