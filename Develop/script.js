@@ -4,8 +4,7 @@
 
 // hours col
 
-// WHEN I click into a timeblock
-// THEN I can enter an event
+
 // when you click on the itmeblock make it an input or modal hmmmm 
 // WHEN I click the save button for that timeblock
 // THEN the text for that event is saved in local storage
@@ -27,6 +26,8 @@
 var currentDayEl = $("#currentDay");
 var containerEl = $(".container");
 
+var asideTime = [9,"10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
+
 //event listeners 
 // save button in timeblock to setthe local storage 
 
@@ -39,7 +40,7 @@ var containerEl = $(".container");
 // ajax get call to return the current day in the #currentDay element 
 
 function getCurrentDay (){
-    var currentDay = moment().format('MMMM Do YYYY');
+    var currentDay = moment().format('dddd MMMM D YYYY');
     console.log(currentDay);
     currentDayEl.text(currentDay);
 }
@@ -51,7 +52,7 @@ function getCurrentDay (){
 
 function createTimeBlocks () {
     //for loop that creates 8 columns with the time 
-    for (var i = 9; i > 1;i--){
+    for (var i = 0; i < 9;i++){
         //create a row 
     var row = $("<div>");
     console.log(row);
@@ -62,6 +63,7 @@ function createTimeBlocks () {
     var timeCol = $("<div>")
     var time = $("<h3>");
     timeCol.attr("class", "col-sm-2 hour");
+    time.text(asideTime[i]);
    
     //textarea column 
     var textCol = $("<textarea>");
@@ -90,6 +92,9 @@ function createTimeBlocks () {
 
 
 }
+
+// WHEN I click into a timeblock
+// THEN I can enter an event
 
 
 
