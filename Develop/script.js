@@ -17,7 +17,7 @@
 
 
 
-
+$(document).ready(function () {
 
 
 //variables 
@@ -26,7 +26,7 @@
 var currentDayEl = $("#currentDay");
 var containerEl = $(".container");
 
-var asideTime = [9,"10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
+var asideTime = [09,10,11,12,13,14,15,16,17]
 
 //event listeners 
 // save button in timeblock to setthe local storage 
@@ -55,7 +55,7 @@ function createTimeBlocks () {
     for (var i = 0; i < 9;i++){
         //create a row 
     var row = $("<div>");
-    console.log(row);
+    // console.log(row);
     //add attributes to the div 
     row.attr("class","row");
     //create the columns 
@@ -67,7 +67,9 @@ function createTimeBlocks () {
    
     //textarea column 
     var textCol = $("<textarea>");
+    //could make disabled then on click enable the text box hmm 
     textCol.attr("class", "col-sm-8 time-block");
+    textCol.attr("text-Input",asideTime[i] );
     textCol.text("Todo");
     // figure out the time block coloring conditional statement 
     //addClass() removeClass() 
@@ -87,15 +89,25 @@ function createTimeBlocks () {
     // saveCol.append(saveImg);
 
     }
-    
-
-
 
 }
+
+$()
 
 // WHEN I click into a timeblock
 // THEN I can enter an event
 
+// $("#")
+// function saveEvent () {
+//     // var textInput = $(this).attr("text-Input").val();
+//     // var inputHour = $(this).attr("text-Input");
+//     // console.log(textInput);
+//     // console.log(inputHour);
+
+//     consoled.log($())
+    
+
+// }
 
 
 
@@ -110,12 +122,9 @@ function createTimeBlocks () {
 
 
 
-$(document).ready(function () {
+
     getCurrentDay();
     createTimeBlocks();
-
     
-
-
 
 })
