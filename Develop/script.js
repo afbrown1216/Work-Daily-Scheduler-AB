@@ -25,7 +25,7 @@
 var currentDayEl = $("#currentDay");
 var containerEl = $(".container");
 var hourEl = $(".hour");
-var hour = moment().hour(i).format("hh")
+// var hour = moment().hour(i).format("hh")
 
 var asideTime = [09,10,11,12,13,14,15,16,17];
 
@@ -53,55 +53,45 @@ function getCurrentDay (){
 
 function createTimeBlocks () {
 
-    // for (var i = 0; i < asideTime.length; i++){
-    //     if (i<12){
-    //         $().text(asideTime[i] + "AM");
-    //     }else {
-    //         hourEl.text(asideTime[i] + "PM");
-    //     }
-        
-
-    // }
-
-
-//     //for loop that creates 8 columns with the time 
-//     for (var i = 0; i < 9;i++){
-//         //create a row 
-//     var row = $("<div>");
-//     // console.log(row);
-//     //add attributes to the div 
-//     row.attr("class","row");
-//     //create the columns 
-//     //time column
-//     var timeCol = $("<div>")
-//     var time = $("<h3>");
-//     timeCol.attr("class", "col-sm-2 hour");
-//     time.text(asideTime[i]);
+    //for loop that creates 8 columns with the time 
+    for (var i = 0; i < 9;i++){
+        //create a row 
+    var row = $("<div>");
+    // console.log(row);
+    //add attributes to the div 
+    row.attr("class","row");
+    //create the columns 
+    //time column
+    var timeCol = $("<div>")
+    var time = $("<h3>");
+    timeCol.attr("class", "col-sm-2 hour");
+    timeCol.attr("data-hour", asideTime[i])
+    time.text(asideTime[i]);
    
-//     //textarea column 
-//     var textCol = $("<textarea>");
-//     //could make disabled then on click enable the text box hmm 
-//     textCol.attr("class", "col-sm-8 time-block");
-//     textCol.attr("text-Input",asideTime[i] );
-//     textCol.text("Todo");
-//     // figure out the time block coloring conditional statement 
-//     //addClass() removeClass() 
-//     //save button column 
-//     var saveCol = $("<div>");
-//     var saveImg = $("<img>")
-//     saveCol.attr("class", "col-sm-2 saveBtn btn");
-//     // saveImg.attr("src","https://cdn2.iconfinder.com/data/icons/actions-states-vol-1-colored/48/JD-03-512.png" );
-//    saveCol.text("save");
+    //textarea column 
+    var textCol = $("<textarea>");
+    //could make disabled then on click enable the text box hmm 
+    textCol.attr("class", "col-sm-8 time-block");
+    textCol.attr("text-Input",asideTime[i] );
+    textCol.text("Todo");
+    // figure out the time block coloring conditional statement 
+    //addClass() removeClass() 
+    //save button column 
+    var saveCol = $("<div>");
+    var saveImg = $("<img>")
+    saveCol.attr("class", "col-sm-2 saveBtn btn");
+    // saveImg.attr("src","https://cdn2.iconfinder.com/data/icons/actions-states-vol-1-colored/48/JD-03-512.png" );
+   saveCol.text("save");
     
 
-//     containerEl.append(row);
-//     row.append(timeCol);
-//     timeCol.append(time);
-//     row.append(textCol);
-//     row.append(saveCol);
-//     // saveCol.append(saveImg);
+    containerEl.append(row);
+    row.append(timeCol);
+    timeCol.append(time);
+    row.append(textCol);
+    row.append(saveCol);
+    // saveCol.append(saveImg);
 
-//     }
+    }
 
 }
 
@@ -111,16 +101,16 @@ function createTimeBlocks () {
 // THEN I can enter an event
 
 // $("#")
-// function saveEvent () {
-//     // var textInput = $(this).attr("text-Input").val();
-//     // var inputHour = $(this).attr("text-Input");
-//     // console.log(textInput);
-//     // console.log(inputHour);
+$(document).on(function saveEvent (event) {
+    // var textInput = $(this).attr("text-Input").val();
+    // var inputHour = $(this).attr("text-Input");
+    // console.log(textInput);
+    // console.log(inputHour);
 
-//     consoled.log($())
+    consoled.log($())
     
 
-// }
+})
 
 
 
@@ -138,7 +128,7 @@ function createTimeBlocks () {
 
 $(document).ready(function () {
     getCurrentDay();
-    createTimeBlocks();
+   createTimeBlocks();
    
     
 
