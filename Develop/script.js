@@ -51,48 +51,48 @@ function getCurrentDay (){
 // create blocks of time for the day with an ajax get call of the hours 9AM -5PM and save button that triggers the setlocalstorage
 
 function createTimeBlocks () {
-    //for loop that creates 8 columns with the time 
-    for (var i = 0; i < 9;i++){
-        //create a row 
-    var row = $("<div>");
-    // console.log(row);
-    //add attributes to the div 
-    row.attr("class","row");
-    //create the columns 
-    //time column
-    var timeCol = $("<div>")
-    var time = $("<h3>");
-    timeCol.attr("class", "col-sm-2 hour");
-    time.text(asideTime[i]);
+//     //for loop that creates 8 columns with the time 
+//     for (var i = 0; i < 9;i++){
+//         //create a row 
+//     var row = $("<div>");
+//     // console.log(row);
+//     //add attributes to the div 
+//     row.attr("class","row");
+//     //create the columns 
+//     //time column
+//     var timeCol = $("<div>")
+//     var time = $("<h3>");
+//     timeCol.attr("class", "col-sm-2 hour");
+//     time.text(asideTime[i]);
    
-    //textarea column 
-    var textCol = $("<textarea>");
-    //could make disabled then on click enable the text box hmm 
-    textCol.attr("class", "col-sm-8 time-block");
-    textCol.attr("text-Input",asideTime[i] );
-    textCol.text("Todo");
-    // figure out the time block coloring conditional statement 
-    //addClass() removeClass() 
-    //save button column 
-    var saveCol = $("<div>");
-    var saveImg = $("<img>")
-    saveCol.attr("class", "col-sm-2 saveBtn btn");
-    // saveImg.attr("src","https://cdn2.iconfinder.com/data/icons/actions-states-vol-1-colored/48/JD-03-512.png" );
-   saveCol.text("save");
+//     //textarea column 
+//     var textCol = $("<textarea>");
+//     //could make disabled then on click enable the text box hmm 
+//     textCol.attr("class", "col-sm-8 time-block");
+//     textCol.attr("text-Input",asideTime[i] );
+//     textCol.text("Todo");
+//     // figure out the time block coloring conditional statement 
+//     //addClass() removeClass() 
+//     //save button column 
+//     var saveCol = $("<div>");
+//     var saveImg = $("<img>")
+//     saveCol.attr("class", "col-sm-2 saveBtn btn");
+//     // saveImg.attr("src","https://cdn2.iconfinder.com/data/icons/actions-states-vol-1-colored/48/JD-03-512.png" );
+//    saveCol.text("save");
     
 
-    containerEl.append(row);
-    row.append(timeCol);
-    timeCol.append(time);
-    row.append(textCol);
-    row.append(saveCol);
-    // saveCol.append(saveImg);
+//     containerEl.append(row);
+//     row.append(timeCol);
+//     timeCol.append(time);
+//     row.append(textCol);
+//     row.append(saveCol);
+//     // saveCol.append(saveImg);
 
-    }
+//     }
 
 }
 
-$()
+
 
 // WHEN I click into a timeblock
 // THEN I can enter an event
