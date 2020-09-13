@@ -17,7 +17,6 @@
 
 
 
-$(document).ready(function () {
 
 
 //variables 
@@ -25,8 +24,10 @@ $(document).ready(function () {
 //#container for time blocks 
 var currentDayEl = $("#currentDay");
 var containerEl = $(".container");
+var hourEl = $(".hour");
+var hour = moment().hour(i).format("hh")
 
-var asideTime = [09,10,11,12,13,14,15,16,17]
+var asideTime = [09,10,11,12,13,14,15,16,17];
 
 //event listeners 
 // save button in timeblock to setthe local storage 
@@ -51,6 +52,18 @@ function getCurrentDay (){
 // create blocks of time for the day with an ajax get call of the hours 9AM -5PM and save button that triggers the setlocalstorage
 
 function createTimeBlocks () {
+
+    // for (var i = 0; i < asideTime.length; i++){
+    //     if (i<12){
+    //         $().text(asideTime[i] + "AM");
+    //     }else {
+    //         hourEl.text(asideTime[i] + "PM");
+    //     }
+        
+
+    // }
+
+
 //     //for loop that creates 8 columns with the time 
 //     for (var i = 0; i < 9;i++){
 //         //create a row 
@@ -123,8 +136,10 @@ function createTimeBlocks () {
 
 
 
+$(document).ready(function () {
     getCurrentDay();
     createTimeBlocks();
+   
     
 
 })
