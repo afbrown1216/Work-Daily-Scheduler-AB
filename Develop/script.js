@@ -65,11 +65,13 @@ function createTimeBlocks () {
     row.attr("class","row");
     //create the columns 
     //time column
-    var timeCol = $("<div>")
+    var timeCol = $("<div>");
+    timeCol.data('asideTime', asideTime[i]);
     var time = $("<h3>");
     timeCol.attr("class", "col-sm-2 hour");
     timeCol.attr("data-hour", asideTime[i])
-    time.text(now.hour(asideTime[i]).format("hh") );
+    // time.text(now.hour(asideTime[i]).format("hh") );
+    
   
    
     //textarea column 
@@ -147,7 +149,7 @@ $(document).on(function saveEvent (event) {
     console.log("clicked");
     
      var textInput = $(this).siblings("textarea").val();
-     var timeInput = $(this).siblings("div").text();
+     var timeInput = $(this).siblings("div").data("asideTime");
     //  console.log(timeInput);
     //  console.log($(this).siblings("h3").val());
     //  console.log($(this).siblings().text());
