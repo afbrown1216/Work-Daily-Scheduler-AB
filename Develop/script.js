@@ -14,7 +14,8 @@
 //create a getlocalstorage at the top of the script to get it from time probaly a document ready
 
 
-
+$(document).ready(function () {
+   
 
 
 
@@ -25,9 +26,9 @@
 var currentDayEl = $("#currentDay");
 var containerEl = $(".container");
 var hourEl = $(".hour");
-// var hour = moment().hour(i).format("hh")
+var now = moment();
 
-var asideTime = [09,10,11,12,13,14,15,16,17];
+var asideTime = [9,10,11,12,13,14,15,16,17];
 
 //event listeners 
 // save button in timeblock to setthe local storage 
@@ -45,6 +46,8 @@ function getCurrentDay (){
     console.log(currentDay);
     currentDayEl.text(currentDay);
 }
+
+getCurrentDay();
 
 
 // WHEN I scroll down
@@ -66,14 +69,26 @@ function createTimeBlocks () {
     var time = $("<h3>");
     timeCol.attr("class", "col-sm-2 hour");
     timeCol.attr("data-hour", asideTime[i])
-    time.text(asideTime[i]);
+    time.text(now.hour(asideTime[i]).format("hh") );
+  
    
     //textarea column 
     var textCol = $("<textarea>");
     //could make disabled then on click enable the text box hmm 
-    textCol.attr("class", "col-sm-8 time-block");
+    // console.log(now.hour(asideTime[i]).format("hh") )
+    var currentTime = moment().hours();
+    if(asideTime[i] > currentTime ){
+       textCol.addClass("future col-sm-8")
+    }else if (asideTime[i] === currentTime){
+        textCol.addClass("present col-sm-8")
+    }else {
+        textCol.addClass("past col-sm-8")
+    }
+     
     textCol.attr("text-Input",asideTime[i] );
-    textCol.text("Todo");
+    textCol.text(localStorage.getItem(asideTime[i]));
+    // console.log(localStorage.getItem(asideTime[i]));
+    console.log(asideTime[i]);
     // figure out the time block coloring conditional statement 
     //addClass() removeClass() 
     //save button column 
@@ -82,7 +97,7 @@ function createTimeBlocks () {
     saveCol.attr("class", "col-sm-2 saveBtn btn");
     // saveImg.attr("src","https://cdn2.iconfinder.com/data/icons/actions-states-vol-1-colored/48/JD-03-512.png" );
    saveCol.text("save");
-    
+  
 
     containerEl.append(row);
     row.append(timeCol);
@@ -92,10 +107,10 @@ function createTimeBlocks () {
     // saveCol.append(saveImg);
 
     }
-
+ 
 }
 
-
+createTimeBlocks();
 
 // WHEN I click into a timeblock
 // THEN I can enter an event
@@ -126,10 +141,19 @@ $(document).on(function saveEvent (event) {
 
 
 
-$(document).ready(function () {
-    getCurrentDay();
-   createTimeBlocks();
+
    
+   $(".saveBtn").on("click", function (){
+    console.log("clicked");
     
+     var textInput = $(this).siblings("textarea").val();
+     var timeInput = $(this).siblings("div").text();
+    //  console.log(timeInput);
+    //  console.log($(this).siblings("h3").val());
+    //  console.log($(this).siblings().text());
+    localStorage.setItem( timeInput, textInput);
+
+
+})
 
 })
